@@ -24,6 +24,10 @@ const inventorySchema = new Schema ({
     purchaseDate: Date,
     productionDate: Date,
     expiryDate: Date,
+    labourCost: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Employee'
+    }],
 }, {
     timestamps: true,
     methods: {
