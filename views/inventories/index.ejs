@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+<table id='inventory-list'>
+    <thead>
+        <tr>
+            <th>SKU number</th>
+            <th>SKU name</th>
+            <th>Status</th>
+            <th>Quantity</th>
+            <th>Unit of measure</th>
+            <th>Cost per unit</th>
+            <th>Purchase date</th>
+            <th>Production date</th>
+            <th>Expiry date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% inventories.forEach(function(i) { %>
+        <tr>
+                <td><%= i.SKUNumber %></td>
+                <td><%= i.SKUName %></td>
+                <td><%= i.status %></td>
+                <td><%= i.purchaseQuantity %></td>
+                <td><%= i.purchaseUnit %></td>    
+                <td><%= i.costPerUnit() %></td>       
+                <td><%= i.purchaseDate.toLocaleDateString("en-GB") %></td>
+                <td><% if (i.status === "raw material") {
+                    i.productionDate = '';
+                    } else { %>
+                    <%= i.productionDate.toLocaleDateString("en-GB") %>
+                    <% } %>
+                </td>
+                <td><%= i.expiryDate.toLocaleDateString("en-GB") %></td>
+        </tr>
+        <% }) %>
+</table>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+<form action='/inventories' method='POST' class="form-style">
+    <label>SKU number:
+        <input type='text' pattern='[A-Z][A-Z][0-9]{4,6}' name='SKUNumber'>
+    </label>
+    <label>SKU name:
+        <input type='text' name='SKUName'>
+    </label>
+    <label>Status:
+        <select name='status'>
+            <option value='raw material'>Raw material</option>
+            <option value='finished product'>Finished product</option>
+        </select>
+    </label>
+    <label>Quantity:
+        <input type='number' name='purchaseQuantity'>
+    </label>
+    <label>Unit of measure:
+        <select name='purchaseUnit'>
+            <option value='grams'>grams</option>
+            <option value='pieces'>pieces</option>
+            <option value='millilitres'>millilitres</option>
+        </select>
+    </label>
+    <label>Cost:
+        <input type='number' pattern='[0-9]{1,4}\.[0-9]{2}' name='purchaseCost'>
+    </label>
+    <label>Purchase date:
+        <input type='date' name='purchaseDate'>
+    </label>
+    <label>Expiry date
+        <input type='date' name='expiryDate'>
+    </label>
+    <input type='submit' value='Submit order' class='button'>
+</form>
+
+<%- include('../partials/footer') %>

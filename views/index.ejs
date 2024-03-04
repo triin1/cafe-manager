@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('./partials/header') %>
+
+<div class='index-links'>
+    <a href='/purchases/new'>Enter a purchase order</a>
+    <a href=''>Make food and drinks</a>
+    <a href="">Record sale of products</a>
+    <a href='/inventories'>Check warehouse</a>
+    <a href="">View business results</a>
+</div>
+
+<%- include('./partials/footer') %>
