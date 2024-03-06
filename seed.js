@@ -2,13 +2,20 @@ require('dotenv').config();
 require('./config/database');
 
 const Recipe = require('./models/recipe');
+const Employee = require('./models/employee')
 
 const data = require('./data');
 
 (async function() {
-  // const results = await Recipe.deleteMany({});
-  
-  results = await Recipe.create(data.recipes);
+    const recipe = Recipe.deleteMany({});
+    const employee = Employee.deleteMany({});
 
-  process.exit();
+    let results = await Promise.all([recipe, employee]);
+  
+    results = await Promise.all([
+        Recipe.create(data.recipes),
+        Employee.create(data.employees)
+    ])
+
+    process.exit();
 })();

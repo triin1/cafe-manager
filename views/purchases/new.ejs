@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
-<form action='/inventories' method='POST' class="form-style">
+
+<form action='/raw' method='POST' class="form-style">
     <label>SKU number:
         <input type='text' pattern='[A-Z][A-Z][0-9]{4,6}' name='SKUNumber'>
     </label>
@@ -14,17 +15,17 @@
         </select>
     </label>
     <label>Quantity:
-        <input type='number' name='purchaseQuantity'>
+        <input type='number' name='quantity'>
     </label>
     <label>Unit of measure:
-        <select name='purchaseUnit'>
+        <select name='measureUnit'>
             <option value='grams'>grams</option>
             <option value='pieces'>pieces</option>
             <option value='millilitres'>millilitres</option>
         </select>
     </label>
     <label>Cost:
-        <input type='number' pattern='[0-9]{1,4}\.[0-9]{2}' name='purchaseCost'>
+        <input type='number' name='purchaseCost'>
     </label>
     <label>Purchase date:
         <input type='date' name='purchaseDate'>
@@ -34,5 +35,6 @@
     </label>
     <input type='submit' value='Submit order' class='button'>
 </form>
+
 
 <%- include('../partials/footer') %>

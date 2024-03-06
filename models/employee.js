@@ -8,8 +8,7 @@ const employeeSchema = new Schema ({
         enum: ['cafe manager', 'senior barista', 'junior barista', 'baker', 'junior baker']
     },
     hourlyWage: {
-        type: Number,
-        enum: ['35', '27', '22', '33', '23']
+        type: Number
     },
     timeSpent: Number,
 }, {

@@ -8,12 +8,12 @@ function newPurchase(req, res) {
 async function create(req, res) {
     try {
         const inventories = await Inventory.create(req.body);
-        res.redirect('/inventories')
+        res.redirect('/raw')
     } catch (err) {
         console.log(err);
-        res.render('purchases/new', { errorMsg: err.message })
+        res.redirect('/purchases/new', { errorMsg: err.message })
     }
-};
+}
 
 
 module.exports = {

@@ -1,5 +1,70 @@
 <%- include('../partials/header') %>
 
+<form action='/finished' method='POST' class="form-style">
+    <h4>Step 1: Select the food or drink you are making:</h4>
+    <label>SKU name:
+        <select name="SKUName" id="SKUNameRecipe">
+            <% recipes.forEach(function(r) { %>
+                <option value='<%= r.SKUName %>'><%= r.SKUName %></option>
+            <% }) %>
+        </select>
+    </label>
+    <label>SKU number:
+        <select name='SKUNumber'>
+            <option id='SKUNumberRecipe'></option>
+        </select>
+    </label>
+    <label>Yields:
+        <select name='quantity'>
+            <option id="yieldsRecipe"></option>
+        </select>
+    </label>
+    <label>Unit of measure:
+    <select name='measureUnit'>
+        <option value='pieces'>pieces</option>
+    </select>
+    </label>
 
+    <h4>Step 2: Include the employee time spent:</h4>
+
+    <label>Employee level:
+        <select name='employeeLevel' id='employeeLevel'>
+            <% employees.forEach(function(e) { %>
+            <option value='<%= e.employeeLevel %>'><%= e.employeeLevel %></option>
+            <% }) %>
+        </select>
+    </label>
+
+    <label>Hourly wage:
+        <select name='hourlyWage'>
+            <option id='hourlyWage'></option>
+        </select>
+    </label>
+    <label>Time spent (minutes):
+        <input type='number' name='timeSpent'>
+    </label>
+
+    <h4>Step 3: Add production and expiry dates:</h4>
+    
+    <label>Status:
+        <select name='status'>
+            <option value='finished product'>Finished product</option>
+            <option value='raw material'>Raw material</option>
+        </select>
+    </label>
+    <label>Production date:
+        <input type='date' name='productionDate'>
+    </label>
+    <label>Expiry date:
+        <input type='date' name='expiryDate'>
+    </label>
+
+    <input type='submit' value='Make food/drink' class='button'>
+</form>
+
+<script>const recipes = <%- JSON.stringify(recipes) %></script>
+<script>const employees = <%- JSON.stringify(employees) %></script>
+<script>const inventories = <%- JSON.stringify(inventories) %></script>
+<script src="/javascripts/menuform.js"></script>
 
 <%- include('../partials/footer') %>

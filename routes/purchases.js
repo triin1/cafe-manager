@@ -6,7 +6,7 @@ const purchasesController = require('../controllers/purchases');
 // GET /purchases/new
 router.get('/purchases/new', purchasesController.new);
 
-// POST /inventories - .create
-router.post('/inventories', purchasesController.create);
+// POST /raw
+router.post('/raw', purchasesController.create);
 
 module.exports = router;

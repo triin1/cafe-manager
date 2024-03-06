@@ -25,10 +25,6 @@ const recipeSchema = new Schema ({
     },
     yields: Number,
     ingredients: [ingredientSchema],
-    inventories: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Inventory'
-    }],
 }, {
     timestamps: true
 });

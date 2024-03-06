@@ -32,4 +32,12 @@ exports.recipes = [
     {SKUNumber: 'MS770266', SKUName: 'mango smoothie', status: 'finished product', yields: 1, ingredients: [ {ingredientQuantity: 1, ingredientUnit: 'pieces', ingredientName: 'mango'}, {ingredientQuantity: 125, ingredientUnit: 'millilitres', ingredientName: 'milk'}, {ingredientQuantity: 125, ingredientUnit: 'grams', ingredientName: 'greek yogurt'} ] },
 
     {SKUNumber: 'BS770137', SKUName: 'berry smoothie', status: 'finished product', yields: 1, ingredients: [ {ingredientQuantity: 200, ingredientUnit: 'grams', ingredientName: 'mixed berries'}, {ingredientQuantity: 1, ingredientUnit: 'pieces', ingredientName: 'banana'}, {ingredientQuantity: 150, ingredientUnit: 'millilitres', ingredientName: 'milk'}, {ingredientQuantity: 50, ingredientUnit: 'grams', ingredientName: 'greek yogurt'} ] }
+];
+
+exports.employees = [
+    {employeeLevel: 'cafe manager', hourlyWage: 37},
+    {employeeLevel: 'senior barista', hourlyWage: 30},
+    {employeeLevel: 'junior barista', hourlyWage: 26},
+    {employeeLevel: 'baker', hourlyWage: 35},
+    {employeeLevel: 'junior baker', hourlyWage: 27},
 ]
