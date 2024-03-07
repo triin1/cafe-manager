@@ -1,10 +1,8 @@
-const Inventory = require('../models/inventory');
 const Financial = require('../models/financial');
 
 
 async function financialsIndex(req, res) {
     const financials = await Financial.find({}).populate('inventory').populate('labourCost');
-    const inventories = await Inventory.find({ status: 'finished product'});
     
     let salesPrice = financials.map(financial => financial.salesPrice);
     let salesQuantity = financials.map(financial => financial.salesQuantity);
@@ -35,7 +33,6 @@ async function financialsIndex(req, res) {
             profit.push(revenue[i]-costOfLabour[i] * salesQuantity[i] -materialCost[i] * salesQuantity[i]);
         }
     };
-
 
     res.render('financials', { title: 'Overview of the financial results', financials, revenue, avgRevUnit, costOfLabour, profit, errorMsg:'' });
 };

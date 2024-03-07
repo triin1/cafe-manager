@@ -1,6 +1,5 @@
 const Inventory = require('../models/inventory');
 const Employee = require('../models/employee');
-const Recipe = require('../models/recipe');
 
 
 async function finishIndex(req, res) {
@@ -25,9 +24,7 @@ async function finishIndex(req, res) {
         }
     };
 
-
-    const employees = await Employee.find({});
-    res.render('finished', { title: 'Detailed list of finished products', inventories, employees, costOfLabour, materialCostPerUnit, errorMsg:'' });
+    res.render('finished', { title: 'Detailed list of finished products', inventories, costOfLabour, materialCostPerUnit, errorMsg:'' });
 };
 
 async function show(req, res) {
@@ -47,9 +44,21 @@ async function createNote(req, res) {
     res.redirect('/finished/' + req.params.id)
 }
 
+// function deleteProduct(req, res, next) {
+//     Inventory.findOne(req.params.id).then(function(item) {
+//         if (!item) return res.redirect("/finished");
+//         inventory.remove(req.params.id);
+//         inventory.save().then(function() {
+//           res.redirect('/finished');
+//         }).catch(function(err) {
+//           return next(err);
+//         });
+//       });
+// }
 
 module.exports = {
     index: finishIndex,
     show,
-    create: createNote
+    create: createNote,
+    //delete: deleteProduct
 }

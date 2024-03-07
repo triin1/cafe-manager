@@ -2,8 +2,6 @@
 
 <div class='links'><a class='button' href='/finished/<%= inventory._id %>/sales/new'>Sell the product</a></div>
 
-
-
 <h4>Add a note:</h4>
 <form class='notes-form' action='/finished/<%= inventory._id %>' method='POST'>
     <label>Note:
@@ -12,6 +10,7 @@
     <input type='submit' value='Add/replace a note'>
 </form>
 
+<% if (inventory.note) { %>
 <table class='notes-table'>
     <thead>
         <tr>
@@ -24,5 +23,8 @@
         </tr>
     </tbody>
 </table>
+<% } else { %>
+    <h4>No notes</h4>
+  <% } %>
 
 <%- include('../partials/footer') %>
