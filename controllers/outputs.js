@@ -22,7 +22,9 @@ async function create(req, res) {
         await inventory.save();
 
         let recipe = await Recipe.findOne({SKUName: req.body.SKUName});
+        recipe.materialCost = req.body.materialCost;
         inventory.recipe = inventory;
+        await recipe.save();
         inventory.recipe.push(recipe);
         await inventory.save();
 

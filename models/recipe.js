@@ -25,6 +25,7 @@ const recipeSchema = new Schema ({
     },
     yields: Number,
     ingredients: [ingredientSchema],
+    materialCost: Number
 }, {
     timestamps: true
 });
