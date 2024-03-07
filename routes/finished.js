@@ -7,6 +7,8 @@ const finishedInventoriesController = require('../controllers/finished');
 router.get('/finished', finishedInventoriesController.index);
 
 // get finished/:id
-//router.get('/:id', finishedInventoriesController.show)
+router.get('/finished/:id', finishedInventoriesController.show);
+
+router.post('/finished/:id', finishedInventoriesController.create);
 
 module.exports = router;

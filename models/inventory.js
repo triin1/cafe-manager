@@ -33,7 +33,8 @@ const inventorySchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: 'Recipe'
     }],
-    materialCost: Number
+    materialCost: Number,
+    note: String
 }, {
     timestamps: true,
     methods: {

@@ -19,8 +19,26 @@ async function finishIndex(req, res) {
     res.render('finished', { title: 'Detailed list of finished products', inventories, employees, costOfLabour, errorMsg:'' });
 };
 
+async function show(req, res) {
+    const inventories = await Inventory.find({});
+    const inventory = await Inventory.findById(req.params.id);
+    res.render('finished/show', { title: 'Sell or add notes to the item', inventory, inventories });
+};
+
+async function createNote(req, res) {
+    const inventory = await Inventory.findById(req.params.id);
+    inventory.note = req.body.note;
+    try {
+        await inventory.save();
+    } catch (err) {
+        console.log(err);
+    }
+    res.redirect('/finished/' + req.params.id)
+}
 
 
 module.exports = {
-    index: finishIndex
+    index: finishIndex,
+    show,
+    create: createNote
 }

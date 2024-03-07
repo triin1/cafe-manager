@@ -12,6 +12,7 @@
             <th>Labour cost</th>
             <th>Production date</th>
             <th>Expiry date</th>
+            <th>Sell/ notes</th>
         </tr>
     </thead>
     <tbody>
@@ -22,8 +23,8 @@
             <td><%= i.status %></td>
             <td><%= i.quantity %></td>
             <td><%= i.measureUnit %></td>    
-            <td><%= i.materialCost %></td>
-            <td><%= costOfLabour[index].toFixed(2) %></td>
+            <td>$ <%= i.materialCost %></td>
+            <td>$ <%= costOfLabour[index].toFixed(2) %></td>
             <td><% if (i.productionDate) { %>
                 <%= i.productionDate.toLocaleDateString("en-GB") %>
                 <% } %>
@@ -32,6 +33,7 @@
                 <%= i.expiryDate.toLocaleDateString("en-GB") %>
                 <% } %>
             </td>
+            <td><a href='/finished/<%= i._id %>'>Action</a></td>
         </tr>
         <% }) %>
 </table>

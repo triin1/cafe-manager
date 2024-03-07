@@ -1,10 +1,31 @@
 <%- include('../partials/header') %>
 
+<a class="'button" href='/finished/<%= inventory._id %>/sell/new'></a>
 
-<section class='show-details'>
-    <div>SKU number: <%= SKUNumber %></div>
-    <div>SKU name: <%= SKUName %></div>
-</section>
 
+<h4>Add a note:</h4>
+<form action='/finished/<%= inventory._id %>' method='POST'>
+    <label>Note:
+        <textarea name='note'></textarea>
+    </label>
+    <input type='submit' value='Add a note'>
+</form>
+
+<hr>
+
+<table>
+    <thead>
+        <tr>
+            <th>All notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% inventories.forEach(function(i) { %>
+        <tr>
+            <td><%= i.note %></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
 
 <%- include('../partials/footer') %>
