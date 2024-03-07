@@ -1,30 +1,27 @@
 <%- include('../partials/header') %>
 
-<a class="'button" href='/finished/<%= inventory._id %>/sell/new'></a>
+<div class='links'><a class='button' href='/finished/<%= inventory._id %>/sales/new'>Sell the product</a></div>
+
 
 
 <h4>Add a note:</h4>
-<form action='/finished/<%= inventory._id %>' method='POST'>
+<form class='notes-form' action='/finished/<%= inventory._id %>' method='POST'>
     <label>Note:
         <textarea name='note'></textarea>
     </label>
-    <input type='submit' value='Add a note'>
+    <input type='submit' value='Add/replace a note'>
 </form>
 
-<hr>
-
-<table>
+<table class='notes-table'>
     <thead>
         <tr>
-            <th>All notes</th>
+            <th>Notes</th>
         </tr>
     </thead>
     <tbody>
-        <% inventories.forEach(function(i) { %>
         <tr>
-            <td><%= i.note %></td>
+            <td><%= inventory.note %></td>
         </tr>
-        <% }) %>
     </tbody>
 </table>
 

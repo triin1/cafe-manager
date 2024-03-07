@@ -13,6 +13,8 @@ var purchasesRouter = require('./routes/purchases');
 var rawInventoriesRouter = require('./routes/raw');
 var finishedInventoriesRouter = require('./routes/finished');
 var outputsRouter = require('./routes/outputs');
+var salesRouter = require('./routes/sales');
+var financialsRouter = require('./routes/financials')
 
 var app = express();
 
@@ -32,6 +34,8 @@ app.use('/', purchasesRouter);
 app.use('/', rawInventoriesRouter);
 app.use('/', finishedInventoriesRouter);
 app.use('/', outputsRouter);
+app.use('/', salesRouter);
+app.use('/', financialsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

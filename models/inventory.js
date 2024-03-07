@@ -17,11 +17,7 @@ const inventorySchema = new Schema ({
         type: String,
         enum: ['grams', 'pieces', 'millilitres', ]
     },
-    purchaseCost: {
-        type: Number,
-        //type: mongoose.Types.Decimal128,
-        //match: /[0-9]{1,4}\.[0-9]{2}/
-    },
+    purchaseCost: Number,
     purchaseDate: Date,
     productionDate: Date,
     expiryDate: Date,
@@ -34,7 +30,9 @@ const inventorySchema = new Schema ({
         ref: 'Recipe'
     }],
     materialCost: Number,
-    note: String
+    note: String,
+    salesPrice: Number,
+    salesQuantity: Number
 }, {
     timestamps: true,
     methods: {
@@ -42,9 +40,6 @@ const inventorySchema = new Schema ({
             let costPerUnit = (this.purchaseCost / this.quantity).toFixed(2);
             return costPerUnit;
         },
-        // materialCost: function() {
-        //     let materialCost = (this.recipe.ingredients)
-        // }
     }
 });
 

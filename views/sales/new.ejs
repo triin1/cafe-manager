@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+
+<form action='/financials' method='POST' class="form-style">
+    <label>Quantity:
+        <input type='number' name='salesQuantity'>
+    </label>
+    <label>Price:
+        <input type='number' name='salesPrice'>
+    </label>
+    <label>Sales date:
+        <input type='date' name='salesDate'>
+    </label>
+    <input type='submit' value='Finalise the sale' class='button'>
+</form>
+
+
+<%- include('../partials/footer') %>

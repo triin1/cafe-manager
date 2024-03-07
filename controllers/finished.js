@@ -22,7 +22,7 @@ async function finishIndex(req, res) {
 async function show(req, res) {
     const inventories = await Inventory.find({});
     const inventory = await Inventory.findById(req.params.id);
-    res.render('finished/show', { title: 'Sell or add notes to the item', inventory, inventories });
+    res.render('finished/show', { title: `Sell or add notes to ${inventory.SKUName}`, inventory, inventories });
 };
 
 async function createNote(req, res) {
