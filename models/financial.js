@@ -16,7 +16,7 @@ const financialsSchema = new Schema ({
     }],
     
 }, {
-    timestamps: true,
+    timestamps: true
 });
 
 module.exports = mongoose.model('Financial', financialsSchema);

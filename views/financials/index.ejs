@@ -12,14 +12,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>    
-            <td></td>
-        </tr>
+        <% financials.forEach(function(i, index) { %>
+            <tr>
+                <td><%= revenue[index] %></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><%= i.salesQuantity %></td>    
+                <td></td>
+            </tr>
+        <% }) %>
 </table>
 
 

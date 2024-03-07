@@ -9,10 +9,7 @@ async function newSales(req, res) {
 
 async function createSale(req, res) {
     try {
-        const inventory = await Inventory.findById(req.params.id);
-        inventory.salesQuantity = req.body.salesQuantity;
-        inventory.salesPrice = req.body.salesPrice;
-
+        const financials = await Financial.create(req.body);
         res.redirect('/financials');
     } catch (err) {
         console.log(err);
