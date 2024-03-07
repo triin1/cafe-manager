@@ -3,23 +3,25 @@
 <table id='financials'>
     <thead>
         <tr>
+            <th>SKU name</th>
             <th>Revenue</th>
+            <th>Units sold</th>
+            <th>Average revenue per unit</th>
             <th>Cost of materials</th>
             <th>Cost of labour</th>
             <th>Profit</th>
-            <th>Units sold</th>
-            <th>Average revenue per unit</th>
         </tr>
     </thead>
     <tbody>
-        <% financials.forEach(function(i, index) { %>
+        <% financials.forEach(function(f, index) { %>
             <tr>
-                <td><%= revenue[index] %></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><%= i.salesQuantity %></td>    
-                <td></td>
+                <td><%= f.SKUName %></td>
+                <td>$ <%= revenue[index] %></td>
+                <td><%= f.salesQuantity %></td>    
+                <td>$ <%= avgRevUnit[index] %></td>
+                <td>$ <%= f.materialCost %></td>
+                <td>$ <%= costOfLabour[index].toFixed(2) %></td>
+                <td>$ <%= profit[index].toFixed(2) %></td>
             </tr>
         <% }) %>
 </table>

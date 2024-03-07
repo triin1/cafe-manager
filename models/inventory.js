@@ -31,8 +31,6 @@ const inventorySchema = new Schema ({
     }],
     materialCost: Number,
     note: String,
-    salesPrice: Number,
-    salesQuantity: Number
 }, {
     timestamps: true,
     methods: {

@@ -2,10 +2,15 @@
 
 
 <form action='/financials' method='POST' class="form-style">
+    <label>SKU name
+        <select name='SKUName'>
+            <option><%= inventory.SKUName %></option>
+        </select>
+    </label>
     <label>Quantity:
         <input type='number' name='salesQuantity'>
     </label>
-    <label>Price:
+    <label>Price per unit:
         <input type='number' name='salesPrice'>
     </label>
     <label>Sales date:
