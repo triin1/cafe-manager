@@ -12,11 +12,11 @@ async function createSale(req, res) {
         let financials = await Financial.create(req.body)
         
         let inventory = await Inventory.findOne({SKUName: req.body.SKUName});
-        financials.materialCost = inventory.materialCost;
+        financials.materialCost = (inventory.materialCost / inventory.quantity);
         await financials.save();
 
         financials.labourCost = inventory.labourCost;
-        await financials.save();        
+        await financials.save();     
 
         res.redirect('/financials');
     } catch (err) {

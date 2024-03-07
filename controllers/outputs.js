@@ -15,7 +15,7 @@ async function create(req, res) {
         const inventory = await Inventory.create(req.body);
         let labour = await Employee.findOne({employeeLevel: req.body.employeeLevel});
         labour.hourlyWage = req.body.hourlyWage;
-        labour.timeSpent = req.body.timeSpent;
+        labour.timeSpent = (req.body.timeSpent / inventory.quantity);
         inventory.labour = inventory;
         await labour.save();
         inventory.labourCost.push(labour);

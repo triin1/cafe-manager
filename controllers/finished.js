@@ -8,6 +8,8 @@ async function finishIndex(req, res) {
     
     let timeSpent = inventories.map(inventory => inventory.labourCost.map(labour => labour.timeSpent));
     let hourlyWage = inventories.map(inventory => inventory.labourCost.map(labour => labour.hourlyWage));
+    let quantity = inventories.map(inventory => inventory.quantity);
+    
     let costOfLabour = [];
     for (let i = 0; i < timeSpent.length; i++) {
         for (let j=0; j < 1; j++) {
@@ -15,8 +17,17 @@ async function finishIndex(req, res) {
         }
     };
 
+    let materialCost = inventories.map(item => item.materialCost);
+    let materialCostPerUnit = [];
+    for (let i = 0; i < materialCost.length; i++) {
+        for (let j=0; j < 1; j++) {
+            materialCostPerUnit.push(materialCost[i] / quantity[i]);
+        }
+    };
+
+
     const employees = await Employee.find({});
-    res.render('finished', { title: 'Detailed list of finished products', inventories, employees, costOfLabour, errorMsg:'' });
+    res.render('finished', { title: 'Detailed list of finished products', inventories, employees, costOfLabour, materialCostPerUnit, errorMsg:'' });
 };
 
 async function show(req, res) {
