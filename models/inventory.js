@@ -32,7 +32,8 @@ const inventorySchema = new Schema ({
     recipe: [{
         type: Schema.Types.ObjectId,
         ref: 'Recipe'
-    }]
+    }],
+    materialCost: Number
 }, {
     timestamps: true,
     methods: {

@@ -10,7 +10,6 @@
             <th>Unit of measure</th>
             <th>Material cost</th>
             <th>Labour cost</th>
-            <th>Total cost</th>
             <th>Production date</th>
             <th>Expiry date</th>
         </tr>
@@ -23,9 +22,8 @@
             <td><%= i.status %></td>
             <td><%= i.quantity %></td>
             <td><%= i.measureUnit %></td>    
-            <td><%=  %></td>
-            <td><%= costOfLabour[index] %></td>
-            <td></td>
+            <td><%= i.materialCost %></td>
+            <td><%= costOfLabour[index].toFixed(2) %></td>
             <td><% if (i.productionDate) { %>
                 <%= i.productionDate.toLocaleDateString("en-GB") %>
                 <% } %>

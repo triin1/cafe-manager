@@ -15,25 +15,6 @@ async function finishIndex(req, res) {
         }
     };
 
-    const recipes = await Recipe.find({});
-    const rawMaterials = await Inventory.find({status: 'raw material'});
-    let purchaseCost = rawMaterials.map(inventory => inventory.purchaseCost);
-    let purchaseName = rawMaterials.map(inventory => inventory.SKUName);
-    let purchaseQuantity = rawMaterials.map(inventory => inventory.quantity);
-    let recipeQuantity = recipes.map(recipe => recipe.ingredients.map(ingredient => ingredient.ingredientQuantity));
-    let recipeName = recipes.map(recipe => recipe.ingredients.map(ingredient => ingredient.ingredientName));
-    let materialCost = [];
-    inventories.forEach(() => {
-        for (let i = 0; i < recipes.length; i++) {
-            if (purchaseName.includes(recipeName)) {
-                materialCost.push(purchaseCost / purchaseQuantity * recipeQuantity);
-                
-            }
-        }
-    })
-    console.log(materialCost);
-
-
     const employees = await Employee.find({});
     res.render('finished', { title: 'Detailed list of finished products', inventories, employees, costOfLabour, errorMsg:'' });
 };

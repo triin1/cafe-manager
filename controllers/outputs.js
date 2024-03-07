@@ -11,14 +11,17 @@ async function newOutput(req, res) {
 };
 
 async function create(req, res) {
-    try {  
-        let inventory = await Inventory.create(req.body); 
-        const labour = await Employee.create(req.body);
+    try {
+        const inventory = await Inventory.create(req.body);
+        let labour = await Employee.findOne({employeeLevel: req.body.employeeLevel});
+        labour.hourlyWage = req.body.hourlyWage;
+        labour.timeSpent = req.body.timeSpent;
         inventory.labour = inventory;
+        await labour.save();
         inventory.labourCost.push(labour);
         await inventory.save();
 
-        const recipe = await Recipe.create(req.body);
+        let recipe = await Recipe.findOne({SKUName: req.body.SKUName});
         inventory.recipe = inventory;
         inventory.recipe.push(recipe);
         await inventory.save();
