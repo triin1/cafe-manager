@@ -7,7 +7,8 @@ function newPurchase(req, res) {
 
 async function create(req, res) {
     try {
-        const inventories = await Inventory.create(req.body);
+        // Create an inventory item (raw material) from "Enter a purchase order" form 
+        await Inventory.create(req.body);
         res.redirect('/raw')
     } catch (err) {
         console.log(err);

@@ -4,6 +4,7 @@ const Employee = require('../models/employee');
 
 
 async function newOutput(req, res) {
+    // Request all information "Make food and drinks" form needs access to (outputs/new.ejs view)
     const recipes = await Recipe.find({});
     const employees = await Employee.find({});
     const inventories = await Inventory.find({});
@@ -12,8 +13,11 @@ async function newOutput(req, res) {
 
 async function create(req, res) {
     try {
+        // Create an inventory item (finished product) from "Make food and drinks" form
         const inventory = await Inventory.create(req.body);
-        let labour = await Employee.findOne({employeeLevel: req.body.employeeLevel});
+
+        // Create labour cost per unit for the inventory item from "Make food and drinks" form
+        let labour = await Employee.findOne({ employeeLevel: req.body.employeeLevel });
         labour.hourlyWage = req.body.hourlyWage;
         labour.timeSpent = (req.body.timeSpent / inventory.quantity);
         inventory.labour = inventory;
@@ -21,7 +25,8 @@ async function create(req, res) {
         inventory.labourCost.push(labour);
         await inventory.save();
 
-        let recipe = await Recipe.findOne({SKUName: req.body.SKUName});
+        // Create material cost for the inventory item from "Make food and drinks" form
+        let recipe = await Recipe.findOne({ SKUName: req.body.SKUName });
         recipe.materialCost = req.body.materialCost;
         inventory.recipe = inventory;
         await recipe.save();
