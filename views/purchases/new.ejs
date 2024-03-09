@@ -1,40 +1,75 @@
 <%- include('../partials/header') %>
 
+<div class='container-md'>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action='/raw' method='POST'>
+                
+                <div class="row">
+                    <label class="form-label col-form-label-sm">SKU number:
+                        <input type='text' pattern='[A-Z][A-Z][0-9]{4,6}' name='SKUNumber' class="form-control form-control-sm">
+                    </label>
+                </div>
+    
+                <div class="row">
+                    <label class="form-label col-form-label-sm">SKU name:
+                        <input type='text' name='SKUName' class="form-control form-control-sm">
+                    </label>
+                </div>
+    
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Status:
+                        <select name='status' class="form-select form-select-sm">
+                            <option value='raw material'>Raw material</option>
+                            <option value='finished product'>Finished product</option>
+                        </select>
+                    </label>
+                </div>
+    
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Quantity:
+                        <input type='number' name='quantity' class="form-control form-control-sm">
+                    </label>
+                </div>
+    
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Unit of measure:
+                        <select name='measureUnit' class="form-select form-select-sm">
+                            <option value='grams'>grams</option>
+                            <option value='pieces'>pieces</option>
+                            <option value='millilitres'>millilitres</option>
+                        </select>
+                    </label>
+                </div>
 
-<form action='/raw' method='POST' class="form-style">
-    <label>SKU number:
-        <input type='text' pattern='[A-Z][A-Z][0-9]{4,6}' name='SKUNumber'>
-    </label>
-    <label>SKU name:
-        <input type='text' name='SKUName'>
-    </label>
-    <label>Status:
-        <select name='status'>
-            <option value='raw material'>Raw material</option>
-            <option value='finished product'>Finished product</option>
-        </select>
-    </label>
-    <label>Quantity:
-        <input type='number' name='quantity'>
-    </label>
-    <label>Unit of measure:
-        <select name='measureUnit'>
-            <option value='grams'>grams</option>
-            <option value='pieces'>pieces</option>
-            <option value='millilitres'>millilitres</option>
-        </select>
-    </label>
-    <label>Cost:
-        <input type='number' step='0.01' min='0.01' name='purchaseCost'>
-    </label>
-    <label>Purchase date:
-        <input type='date' name='purchaseDate'>
-    </label>
-    <label>Expiry date
-        <input type='date' name='expiryDate'>
-    </label>
-    <input type='submit' value='Submit order' class='button'>
-</form>
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Cost:
+                        <input type='number' step='0.01' min='0.01' name='purchaseCost' class="form-control form-control-sm">
+                    </label>
+                </div>
+
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Purchase date:
+                        <input type='date' name='purchaseDate' class="form-control form-control-sm">
+                    </label>
+                </div>
+
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Expiry date
+                        <input type='date' name='expiryDate' class="form-control form-control-sm">
+                    </label>
+                </div>
+
+                <div class='flex-container'>
+                    <input type='submit' value='Submit order' class="button">
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
 
 
 <%- include('../partials/footer') %>

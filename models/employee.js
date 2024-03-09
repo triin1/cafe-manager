@@ -12,13 +12,7 @@ const employeeSchema = new Schema ({
     },
     timeSpent: Number,
 }, {
-    timestamps: true,
-    methods: {
-        labourCost: function() {
-            let labourCost = (this.hourlyWage * this.timeSpent/60).toFixed(2);
-            return labourCost
-        }
-    }
+    timestamps: true
 });
 
 module.exports = mongoose.model('Employee', employeeSchema);

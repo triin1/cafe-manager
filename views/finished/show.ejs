@@ -1,30 +1,54 @@
 <%- include('../partials/header') %>
 
-<div class='links'><a class='button' href='/finished/<%= inventory._id %>/sales/new'>Sell the product</a></div>
+<div class='container-md'>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class='flex-container'>
+                    <div><a href='/finished/<%= inventory._id %>/sales/new' class="links">Sell the product</a></div>
+                </div>
+            </div>
 
-<h4>Add a note:</h4>
-<form class='notes-form' action='/finished/<%= inventory._id %>' method='POST'>
-    <label>Note:
-        <textarea name='note'></textarea>
-    </label>
-    <input type='submit' value='Add/replace a note'>
-</form>
+            <div class="row">
+                <h4>Add a note:</h4>
+            </div>
 
-<% if (inventory.note) { %>
-<table class='notes-table'>
-    <thead>
-        <tr>
-            <th>Notes</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><%= inventory.note %></td>
-        </tr>
-    </tbody>
-</table>
-<% } else { %>
-    <h4>No notes</h4>
-  <% } %>
+            <div class="row">
+                <form action='/finished/<%= inventory._id %>' method='POST'>
+                    <label class="form-label col-form-label-sm">
+                        <textarea name='note' class="form-control form-control-sm"></textarea>
+                    </label>
+            </div>
+
+                <div class="row">
+                    <div class='flex-container'>
+                        <input type='submit' value='Add/replace a note' class="button">
+                    </div>
+                </div>
+                </form>
+
+            <div class="row">
+                <% if (inventory.note) { %>
+                    <table class='notes-table'>
+                        <thead>
+                            <tr>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%= inventory.note %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <h4>No notes</h4>
+                <% } %>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
 
 <%- include('../partials/footer') %>

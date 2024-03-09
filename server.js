@@ -8,13 +8,12 @@ require('dotenv').config();
 require('./config/database');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var purchasesRouter = require('./routes/purchases');
 var rawInventoriesRouter = require('./routes/raw');
 var finishedInventoriesRouter = require('./routes/finished');
 var outputsRouter = require('./routes/outputs');
 var salesRouter = require('./routes/sales');
-var financialsRouter = require('./routes/financials')
+var financialsRouter = require('./routes/financials');
 
 var app = express();
 
@@ -29,7 +28,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/', purchasesRouter);
 app.use('/', rawInventoriesRouter);
 app.use('/', finishedInventoriesRouter);

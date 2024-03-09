@@ -9,6 +9,4 @@ router.get('/finished/:id', finishedInventoriesController.show);
 
 router.post('/finished/:id', finishedInventoriesController.create);
 
-// router.delete('/finished/:id', finishedInventoriesController.delete);
-
 module.exports = router;

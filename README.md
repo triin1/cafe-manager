@@ -10,6 +10,7 @@ Cafe Manager is a CRUD application built using Express and Mongoose. Cafe Manage
 * JavaScript
 * HTML
 * CSS
+* Bootstrap
 
 ## Next steps
 

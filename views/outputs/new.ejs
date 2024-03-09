@@ -1,71 +1,124 @@
 <%- include('../partials/header') %>
 
-<form action='/finished' method='POST' class="form-style">
-    <h4>Step 1: Select the food or drink you are making:</h4>
-    <label>SKU name:
-        <select name="SKUName" id="SKUNameRecipe">
-            <% recipes.forEach(function(r) { %>
-                <option value='<%= r.SKUName %>'><%= r.SKUName %></option>
-            <% }) %>
-        </select>
-    </label>
-    <label>SKU number:
-        <select name='SKUNumber'>
-            <option id='SKUNumberRecipe'></option>
-        </select>
-    </label>
-    <label>Yields:
-        <select name='quantity'>
-            <option id="yieldsRecipe"></option>
-        </select>
-    </label>
-    <label>Unit of measure:
-    <select name='measureUnit'>
-        <option value='pieces'>pieces</option>
-    </select>
-    </label>
-    <label>Cost of materials:
-        <select name='materialCost'>
-            <option id='materialCost'></option>
-        </select>
-    </label>
+<div class='container-md'>
+    <div class="row">
+        <div class="col-md-4">
+            <form action='/finished' method='POST'>
+                
+                <h4>Step 1: Select the food or drink you are making:</h4>
+
+                <div class="row">
+                    <label class="form-label col-form-label-sm">SKU name:
+                        <select name="SKUName" id="SKUNameRecipe" class="form-select form-select-sm">
+                            <% recipes.forEach(function(r) { %>
+                            <option value='<%= r.SKUName %>'><%= r.SKUName %></option>
+                            <% }) %>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <label class="form-label col-form-label-sm">SKU number:
+                        <select name='SKUNumber' class="form-select form-select-sm">
+                            <option id='SKUNumberRecipe'></option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Yields:
+                        <select name='quantity' class="form-select form-select-sm">
+                            <option id="yieldsRecipe"></option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Unit of measure:
+                        <select name='measureUnit' class="form-select form-select-sm">
+                            <option value='pieces'>pieces</option>
+                        </select>
+                    </label>
+                </div>
     
-    <h4>Step 2: Include the employee time spent:</h4>
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Cost of materials ($):
+                        <select name='materialCost' class="form-select form-select-sm">
+                            <option id='materialCost'></option>
+                        </select>
+                    </label>
+                </div>
+        </div>
 
-    <label>Employee level:
-        <select name='employeeLevel' id='employeeLevel'>
-            <% employees.forEach(function(e) { %>
-            <option value='<%= e.employeeLevel %>'><%= e.employeeLevel %></option>
-            <% }) %>
-        </select>
-    </label>
+            <div class="col-md-4">
+                <h4>Step 2: Include the employee time spent:</h4>
 
-    <label>Hourly wage:
-        <select name='hourlyWage'>
-            <option id='hourlyWage'></option>
-        </select>
-    </label>
-    <label>Time spent (minutes):
-        <input type='number' name='timeSpent'>
-    </label>
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Employee level:
+                        <select name='employeeLevel' id='employeeLevel' class="form-select form-select-sm">
+                            <% employees.forEach(function(e) { %>
+                            <option value='<%= e.employeeLevel %>'><%= e.employeeLevel %></option>
+                            <% }) %>
+                        </select>
+                    </label>
+                </div>
 
-    <h4>Step 3: Add production and expiry dates:</h4>
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Hourly wage:
+                        <select name='hourlyWage' class="form-select form-select-sm">
+                            <option id='hourlyWage'></option>
+                        </select>
+                    </label>
+                </div>
     
-    <label>Status:
-        <select name='status'>
-            <option value='finished product'>Finished product</option>
-            <option value='raw material'>Raw material</option>
-        </select>
-    </label>
-    <label>Production date:
-        <input type='date' name='productionDate'>
-    </label>
-    <label>Expiry date:
-        <input type='date' name='expiryDate'>
-    </label>
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Time spent (minutes):
+                        <input type='number' name='timeSpent' class="form-control form-control-sm">
+                    </label>
+                </div>
+            </div>
 
-    <input type='submit' value='Make food/drink' class='button'>
-</form>
+            <div class="col-md-4">
+                <h4>Step 3: Add production and expiry dates:</h4>
+    
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Status:
+                        <select name='status' class="form-select form-select-sm">
+                            <option value='finished product'>Finished product</option>
+                            <option value='raw material'>Raw material</option>
+                        </select>
+                    </label>
+                </div>
+    
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Production date:
+                        <input type='date' name='productionDate' class="form-control form-control-sm">
+                    </label>
+                </div>
+    
+                <div class="row">
+                    <label class="form-label col-form-label-sm">Expiry date:
+                        <input type='date' name='expiryDate' class="form-control form-control-sm">
+                    </label>
+                </div>
+            </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="flex-container"> 
+                <input type='submit' value='Make food/drink' class='button'>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <script>const recipes = <%- JSON.stringify(recipes) %></script>
 <script>const employees = <%- JSON.stringify(employees) %></script>

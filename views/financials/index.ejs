@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<table id='financials'>
+<table>
     <thead>
         <tr>
             <th>SKU name</th>
@@ -19,7 +19,7 @@
                 <td>$ <%= revenue[index] %></td>
                 <td><%= f.salesQuantity %></td>    
                 <td>$ <%= avgRevUnit[index] %></td>
-                <td>$ <%= f.materialCost %></td>
+                <td>$ <%= f.materialCost.toFixed(2) %></td>
                 <td>$ <%= costOfLabour[index].toFixed(2) %></td>
                 <td>$ <%= profit[index].toFixed(2) %></td>
             </tr>

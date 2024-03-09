@@ -1,23 +1,46 @@
 <%- include('../partials/header') %>
 
+<div class='container-md'>
+    <div class='row'>
+        <div class='col-md-4'></div>
+        <div class='col-md-4'>
+            <form action='/financials' method='POST'>
 
-<form action='/financials' method='POST' class="form-style">
-    <label>SKU name
-        <select name='SKUName'>
-            <option><%= inventory.SKUName %></option>
-        </select>
-    </label>
-    <label>Quantity:
-        <input type='number' name='salesQuantity'>
-    </label>
-    <label>Price per unit:
-        <input type='number' step='0.01' min='0.01' name='salesPrice'>
-    </label>
-    <label>Sales date:
-        <input type='date' name='salesDate'>
-    </label>
-    <input type='submit' value='Finalise the sale' class='button'>
-</form>
+                <div class='row'>
+                    <label class="form-label col-form-label-sm">SKU name
+                        <select name='SKUName' class="form-select form-select-sm">
+                            <option><%= inventory.SKUName %></option>
+                        </select>
+                    </label>
+                </div>
 
+                <div class='row'>
+                    <label class="form-label col-form-label-sm">Quantity:
+                        <input type='number' name='salesQuantity' class="form-control form-control-sm">
+                    </label>
+                </div>
+
+                <div class='row'>
+                    <label class="form-label col-form-label-sm">Price per unit:
+                        <input type='number' step='0.01' min='0.00' name='salesPrice' class="form-control form-control-sm">
+                    </label>
+                </div>
+    
+                <div class='row'>
+                    <label class="form-label col-form-label-sm">Sales date:
+                        <input type='date' name='salesDate' class='form-control form-control-sm'>
+                    </label>
+                </div>
+    
+                <div class='row'>
+                    <div class='flex-container'>
+                        <input type='submit' value='Finalise the sale' class='button'>
+                    </div>
+                </div>
+
+            </form>
+        <div class="col-md-4"></div>
+    </div>
+</div>
 
 <%- include('../partials/footer') %>

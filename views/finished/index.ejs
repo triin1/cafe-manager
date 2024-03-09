@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<table id='inventory-list'>
+<table>
     <thead>
         <tr>
             <th>SKU number</th>
@@ -17,25 +17,26 @@
     </thead>
     <tbody>
         <% inventories.forEach(function(i, index) { %>
-        <tr>
-            <td><%= i.SKUNumber %></td>
-            <td><%= i.SKUName %></td>
-            <td><%= i.status %></td>
-            <td><%= i.quantity %></td>
-            <td><%= i.measureUnit %></td>    
-            <td>$ <%= materialCostPerUnit[index].toFixed(2) %></td>
-            <td>$ <%= costOfLabour[index].toFixed(2) %></td>
-            <td><% if (i.productionDate) { %>
-                <%= i.productionDate.toLocaleDateString("en-GB") %>
-                <% } %>
-            </td>
-            <td><% if (i.expiryDate) { %>
-                <%= i.expiryDate.toLocaleDateString("en-GB") %>
-                <% } %>
-            </td>
-            <td><a href='/finished/<%= i._id %>'>Action</a></td>
-        </tr>
+            <tr>
+                <td><%= i.SKUNumber %></td>
+                <td><%= i.SKUName %></td>
+                <td><%= i.status %></td>
+                <td><%= i.quantity %></td>
+                <td><%= i.measureUnit %></td>    
+                <td>$ <%= materialCostPerUnit[index].toFixed(2) %></td>
+                <td>$ <%= costOfLabour[index].toFixed(2) %></td>
+                <td><% if (i.productionDate) { %>
+                    <%= i.productionDate.toLocaleDateString("en-GB") %>
+                    <% } %>
+                </td>
+                <td><% if (i.expiryDate) { %>
+                    <%= i.expiryDate.toLocaleDateString("en-GB") %>
+                    <% } %>
+                </td>
+                <td><a href='/finished/<%= i._id %>'>Action</a></td>
+            </tr>
         <% }) %>
+    </tbody>
 </table>
 
 

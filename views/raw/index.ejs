@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <% inventories.forEach(function(i) { %>
-        <tr>
+            <tr>
                 <td><%= i.SKUNumber %></td>
                 <td><%= i.SKUName %></td>
                 <td><%= i.status %></td>
@@ -30,7 +30,7 @@
                     <%= i.expiryDate.toLocaleDateString("en-GB") %>
                     <% } %>
                 </td>
-        </tr>
+            </tr>
         <% }) %>
 </table>
 
