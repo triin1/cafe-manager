@@ -5,14 +5,21 @@ const Schema = mongoose.Schema;
 const inventorySchema = new Schema ({
     SKUNumber: {
         type: String,
-        match: /[A-Z][A-Z][0-9]{4,6}/
+        match: /[A-Z][A-Z][0-9]{4,6}/,
+        required: true
     },
-    SKUName: String,
+    SKUName: {
+        type: String,
+        required: true
+    },
     status: {
         type: String,
         enum: ['raw material', 'finished product'],
     },
-    quantity: Number,
+    quantity: {
+        type: Number,
+        required: true
+    },
     measureUnit: {
         type: String,
         enum: ['grams', 'pieces', 'millilitres', ]

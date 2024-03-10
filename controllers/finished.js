@@ -8,6 +8,7 @@ async function finishIndex(req, res) {
     // Calculate labour cost per unit
     let timeSpent = inventories.map(inventory => inventory.labourCost.map(labour => labour.timeSpent));
     let hourlyWage = inventories.map(inventory => inventory.labourCost.map(labour => labour.hourlyWage));
+    let quantity = inventories.map(inventory => inventory.quantity);
     
     let costOfLabour = [];
     for (let i = 0; i < timeSpent.length; i++) {
@@ -18,8 +19,7 @@ async function finishIndex(req, res) {
 
     // Calculate material cost per unit
     let materialCost = inventories.map(item => item.materialCost);
-    let quantity = inventories.map(inventory => inventory.quantity);
-
+    
     let materialCostPerUnit = [];
     for (let i = 0; i < materialCost.length; i++) {
         for (let j=0; j < 1; j++) {
@@ -31,9 +31,10 @@ async function finishIndex(req, res) {
 };
 
 async function show(req, res) {
+    const inventories = await Inventory.find({});
     // Display an "action" page for a specific finished product item to sell the product or add notes
     const inventory = await Inventory.findById(req.params.id);
-    res.render('finished/show', { title: `Sell or add notes to ${inventory.SKUName}`, inventory });
+    res.render('finished/show', { title: `Sell or add notes to ${inventory.SKUName}`, inventory, inventories });
 };
 
 async function createNote(req, res) {
